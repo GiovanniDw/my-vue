@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "quotes": ["error", "double"],
+    "prettier/prettier": ["error", { "singleQuote": true }]
+  },
+
+  "overrides": [
+    {
+      "files": ["bin/*.js", "lib/*.js"],
+      "excludedFiles": "*.test.js",
+      "rules": {
+        "quotes": ["error", "double"]
+      }
+    }
+  ]
+}
