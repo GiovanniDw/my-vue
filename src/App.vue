@@ -9,13 +9,11 @@ import HelloWorld from '@/components/HelloWorld.vue';
       alt="Vue logo"
       class="logo"
       src="@/assets/logo.svg"
-      width="125"
-      height="125"
+      width="50"
+      height="50"
     />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -107,7 +105,7 @@ nav a:first-of-type {
   header .wrapper {
     display: flex;
     place-items: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
   }
 
   .logo {
