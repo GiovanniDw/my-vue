@@ -1,14 +1,23 @@
 <script setup>
-import {ref} from 'vue'
-const show = ref(true);
-const heading = ref([h1, h2, h3, h4, h5, h6]);
+import Heading from '@/components/Heading.vue';
+let heading = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
+
 </script>
 
 <template lang="">
   <main> 
     <div> 
       <h1>Typography</h1>
+      <component :is="type" v-for="(type, index) in heading" v-text="type + ` Heading`" />
+      <p>Paragraph</p>
     </div> 
+    <div>
+      <h1>Colors</h1>
+
+
+    </div>
+
   </main>
 </template>
 
@@ -16,7 +25,11 @@ const heading = ref([h1, h2, h3, h4, h5, h6]);
 /* @import '@/assets/base.css'; */
 
 h1 {
+  color: #111111;
 
-  color: blue;
+  &:first-of-type {
+  border-bottom: 1px solid gray;
+  margin-bottom: .5rem;
+  }
 }
 </style>
