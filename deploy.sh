@@ -17,6 +17,8 @@ yarn run build
 # git add -A
 # git commit -m 'deploy'
 
+git add docs -f
+git commit -m "deploy"
 # if you are deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
@@ -26,4 +28,4 @@ yarn run build
 
 # cd -
 
-git subtree push --prefix dist origin gh-pages
+git subtree push --prefix docs origin main
