@@ -17,7 +17,7 @@ import HelloWorld from '@/components/HelloWorld.vue';
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/components">Components</RouterLink>
+        <RouterLink to="/style-guide">Style Guide</RouterLink>
       </nav>
     </div>
   </header>
@@ -32,7 +32,7 @@ import HelloWorld from '@/components/HelloWorld.vue';
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
+min-height: 100vh;
   font-weight: normal;
 }
 
