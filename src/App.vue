@@ -47,10 +47,20 @@ let dark = "#000";
     </div>
   </header>
   <RouterView></RouterView>
+  <footer>
+
+    Footer
+
+  </footer>
 </template>
 
 <style scoped lang="scss">
 
+footer {
+
+  height: 200vh;
+  background: #000;
+}
 
 #app {
   max-width: 1280px;
