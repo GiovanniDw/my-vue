@@ -83,6 +83,7 @@ transition-duration: 1s;
 
 -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  
 }
 
   .wrapper {
