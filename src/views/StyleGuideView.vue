@@ -11,21 +11,18 @@ let headings = ['h1', "h2", "h3", "h4", "h5", "h6"];
     <div> 
       <h1>Typography</h1>
       <Heading v-for="heading in headings" :heading="heading" >{{ heading }}</Heading>
-      
       <p>Paragraph</p>
     </div> 
     <div>
       <h1>Colors</h1>
-      
-
     </div>
-<div>
-  <CodeBlock />
-</div>
+    <div>
+      <CodeBlock />
+    </div>
   </main>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 /* @import '@/assets/base.css'; */
 
 h1 {
@@ -38,27 +35,35 @@ h1 {
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  /* flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
-  align-content: stretch;
-  gap: 10px 30px;
+  align-items: stretch; */
+  
 
   div {
-    /* flex-grow: 1; */
+    
     /* display: block; */
   }
 
 }
 
 @media (min-width: 1024px) {
-  main {
-    flex-direction: row;
-    align-content: start;
-    padding: 2em 2em;
-    flex-wrap: wrap;
-  }
+  /* main {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(550, 1fr));
+  grid-gap: 1rem;
+    
+    
+div {
+  
+   padding: 1.5rem;
+}
+
+  } */
 
 
 }

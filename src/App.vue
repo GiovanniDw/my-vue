@@ -46,7 +46,11 @@ let dark = "#000";
       </nav>
     </div>
   </header>
-  <RouterView></RouterView>
+  <RouterView v-slot="{Component, route}">
+    <transition :name="route.meta.transition" mode="out-in">
+      <component :is="Component" :key="route.path" />
+    </transition>
+  </RouterView>
   <footer>
 
     Footer
