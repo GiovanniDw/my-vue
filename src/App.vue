@@ -1,17 +1,10 @@
 <script setup>
-import { ref, reactive } from 'vue';
+// import { ref, reactive } from 'vue';
 import { useScroll } from '@/helpers/useWindowScroll';
 import { RouterLink, RouterView } from 'vue-router';
-import HelloWorld from '@/components/HelloWorld.vue';
-
+// import HelloWorld from '@/components/HelloWorld.vue';
 
 const { scrollPosition } = useScroll();
-
-let light = "#fff";
-let dark = "#000";
-
-
-
 
 // const isSticky = ref(false);
 // const scrollPositionRef = ref(scrollPosition);
@@ -22,54 +15,59 @@ let dark = "#000";
 // isSticky.value
 // }
 
-
 // const isScrolled = () => {
 //   if (scrollPosition < 0) {
 //     return isSticky = ref(true)
 //   } else {
 // return isSticky = ref(false)
 //   }
- 
-// }
 
+// }
 </script>
 
 <template>
-  <header :class="{scrolled: scrollPosition > 80}">
+  <header :class="{ scrolled: scrollPosition > 80 }">
     <div class="wrapper">
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
-      {{ scrollPosition }}
+      <RouterLink to="/" class="nav-brand">
+        <img
+          alt="Vue logo"
+          class="logo"
+          src="@/assets/logo.svg"
+          width="50"
+          height="50"
+        />
+        <span>Title</span>
+      </RouterLink>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/style-guide">Style Guide</RouterLink>
+        <TransitionGroup name="route">
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/style-guide">Style Guide</RouterLink>
+        </TransitionGroup>
       </nav>
+      <div class="nav-right">
+        {{ scrollPosition }}
+      </div>
     </div>
   </header>
-  <RouterView v-slot="{Component, route}">
+  <RouterView v-slot="{ Component, route }">
     <transition :name="route.meta.transition" mode="out-in">
       <component :is="Component" :key="route.path" />
     </transition>
   </RouterView>
-  <footer>
-
-    Footer
-
-  </footer>
+  <footer>Footer</footer>
 </template>
 
 <style scoped lang="scss">
-
 footer {
-
-  height: 200vh;
-  background: #000;
+  height: 80vh;
+  background: var(--color-background-mute);
 }
 
 #app {
-  max-width: 1280px;
+  /* max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem; */
   /* min-height: 100vh; */
   font-weight: normal;
 }
@@ -79,39 +77,67 @@ header {
   max-height: 100vh;
   top: 0;
   position: sticky;
-  padding: 1em; 
+  padding: 1em;
   z-index: 999;
-  
-transition-duration: 1s;
-&.scrolled {
+  transition-duration: 1s;
 
--webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  
-}
+  &.scrolled {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
 
   .wrapper {
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       display: flex;
       justify-content: space-between;
       flex-wrap: no-wrap;
+      align-items: baseline;
+    }
+
+    .nav-brand {
+      display: flex;
       align-items: center;
+    }
+
+    .nav-right {
+      width: 50px;
+    }
+  }
+}
+
+nav {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+  /* display: inline-block; */
+
+  a {
+    display: inline-block;
+    padding: 0 1rem;
+    border-left: 1px solid var(--color-border);
+
+    &.router-link-exact-active {
+      color: var(--color-text);
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &:first-of-type {
+      border-left: 0;
     }
   }
 
-
-
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-
   @media (min-width: 1024px) {
-    margin: 0 2rem 0 0;
+    /* text-align: left; */
+    margin-top: 0;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
   }
-
-
 }
 
 a,
@@ -126,41 +152,4 @@ a,
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
-
-nav {
-
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-  /* display: inline-block; */
-
-  @media (min-width: 1024px) {
-    /* text-align: left; */
-    margin-top: 0;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-
-  a.router-link-exact-active {
-    color: var(--color-text);
-
-    &:hover {
-      background-color: transparent;
-    }
-  }
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
 </style>

@@ -1,6 +1,5 @@
 <script lang="ts">
 import { PropType, h, defineComponent } from 'vue';
-
 export default defineComponent({
   props: {
     heading: {
