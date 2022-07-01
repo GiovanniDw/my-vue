@@ -33,8 +33,8 @@ const { scrollPosition } = useScroll();
           alt="Vue logo"
           class="logo"
           src="@/assets/logo.svg"
-          width="50"
-          height="50"
+          width="44"
+          height="44"
         />
         <span>Title</span>
       </RouterLink>
@@ -80,10 +80,11 @@ header {
   padding: 1em;
   z-index: 999;
   transition-duration: 1s;
-
+  background-color: var(--color-background-hero);
   &.scrolled {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .wrapper {
@@ -91,7 +92,7 @@ header {
       display: flex;
       justify-content: space-between;
       flex-wrap: no-wrap;
-      align-items: baseline;
+      align-items: stretch;
     }
 
     .nav-brand {
@@ -101,6 +102,7 @@ header {
 
     .nav-right {
       width: 50px;
+      align-self: center;
     }
   }
 }
@@ -136,7 +138,6 @@ nav {
     font-size: 1rem;
 
     padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 
